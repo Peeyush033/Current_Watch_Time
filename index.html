@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Watch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: black;
+    }
+    .container{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .timeHolder{
+        background: #060916;
+        color: white;
+        border: 3px,solid rgb(195, 195, 12);
+        max-width: 600px;
+        min-width: 300px;
+        height: 110px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+
+    };
+
+    .timeoptions{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+    };
+    .maindiv{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      
+        
+    };
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timeHolder">
+            <div class="timeoptions">
+              <i class="fa-solid fa-stopwatch"></i>
+              <i class="fa-solid fa-stopwatch-20"></i>
+              <i class="fa-solid fa-alarm-clock" style="color: rgb(236, 239, 243);"></i>
+            </div>
+            <div class="maindiv">
+                <p id="clock">
+
+                </p>
+            </div>
+        </div>
+    </div>
+     
+    <script>
+        const currenttime=()=>{
+            let now=new Date().toLocaleTimeString();
+            
+            document.getElementById('clock').innerText=now;
+        };
+        currenttime();
+
+
+        // automatio update ho jye ga
+      let running= setInterval(()=>{
+            currenttime();
+        },1000);
+
+
+        // stop funtion
+        setTimeout(()=>{clearInterval(running)},10000);
+    </script>
+</body>
+</html>
